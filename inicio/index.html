@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-on:input="alterarTitulo">
+        <p>{{ titulo }}</p>
+        <p v-on:click="somar">{{ contador }}</p>
+        <p v-once>{{ ola() }}</p>
+        <p><a v-bind:href="link">{{ link }}</a></p>
+        <hr>
+        <p>{{ linkHtml }}</p>
+        <p v-html="linkHtml"></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS 2!',
+            link: 'http://google.com.br',
+            linkHtml: '<a href="http://google.com.br">Google</a>',
+            contador: 0,
+        },
+        methods: {
+            alterarTitulo(event) {
+                this.titulo = event.target.value
+            }, 
+            ola: function() {
+                return 'Aqui'
+            },
+            somar() {
+                this.contador++
+            }
+        }
+    });
+    </script>
+</body>
+</html>
